@@ -30,6 +30,7 @@ gem "jbuilder"
 gem 'materialize-sass', '~> 1.0.0'
 gem 'material_icons'
 gem 'sassc-rails'
+gem 'jquery-rails'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
