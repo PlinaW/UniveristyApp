@@ -32,6 +32,7 @@ gem 'material_icons'
 gem 'sassc-rails'
 gem 'jquery-rails'
 gem 'haml'
+gem 'slim'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
