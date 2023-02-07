@@ -1,0 +1,13 @@
+- if obj.errors.any?
+  .container
+    .row
+      .col.s12.m12.l12
+        .card-panel.red.lighten-2
+          span.white-text
+            strong
+              = pluralize(@user.errors.count, "error")
+            |  prohibited your profile from being created: 
+            ul
+              - @user.errors.full_messages.each do |message|
+                li
+                  = message
