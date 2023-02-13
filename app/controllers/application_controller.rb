@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
 
+    before_action :require_user
+
+
     # Metody do sprawdzenia logowania sa tworzone w ApplicationController,
     # poniewaz dzieki temu beda dostepne TYLKO w kontrolerach, mozna byloby je 
     # rowniez wprowadzic do helpers -> application_helper, ale bylyby dost-
@@ -52,5 +55,13 @@ class ApplicationController < ActionController::Base
     # i dzieki temu sprawdzamy, czy current_user jest true or false
     # czyli czy jest zalogowany, czy nie.
 
+    def require_user
+      if !logged_in?
+        flash[:notice] = "You must be logged in to perform that action"
+        redirect_to login_path
+      end
+    end
+    
+    # metoda wymagajaca zalogowania
 
 end
