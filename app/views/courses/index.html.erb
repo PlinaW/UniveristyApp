@@ -12,7 +12,10 @@
           <p><%= course.description%></p>
         </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
+          <% if logged_in? && !(current_user.courses.include?(course))%>
+            <%= link_to "Enroll", course_enroll_path(course_id: course.id), data: {turbo_method: :post} %>
+          <% end %>
+          <%# powyzszy link_to zaciaga id konkretnego kursu i poprzez klikniecie odnosnika przerzuca id do controllera %>
           <a href="#">This is a link</a>
         </div>
       </div>

@@ -7,12 +7,18 @@
     .card.blue-grey.darken-1
       .card-content.white-text
           span.card-title
-          = @user.name
+            = @user.name
           p
           = @user.email
           p
-          | Course Enrollments: NONE
-
+          | Course Enrollments:
+          - if @user.courses.empty?
+            |  None 
+          - else
+            ul
+              - @user.courses.each do |course|
+                li
+                  = course.name
 
     - if current_user == @user                
       = link_to '<i class="material-icons right">create</i>"Edit your profile"'.html_safe,\
